@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="res/icons/logo-64.png">
+		<link rel="stylesheet" type="text/css" href="style/main.css">
+		<link rel="stylesheet" type="text/css" media="(max-width: 648px)" href="style/mobile.css">
+		<link rel="stylesheet" type="text/css" href="res/fontawesome-free-5.15.1-web/css/all.css"> <!-- minify!!!! -->
+		<title>TreterBeter</title>
+	</head>
+	<body>
+		
+		<div id="grid_container">
+			<header>
+				<ul id="nav_list">
+					<li><img id="logo" src="res/icons/logo-64.png" alt="Logo"></li>
+					<li>
+						<div id="menu_container" onclick="toggleMenu()">
+							<div class="bar1"></div>
+  							<div class="bar2"></div>
+  							<div class="bar3"></div>
+						</div>
+					</li>
+				</ul>
+			</header>
+
+			<div id="main_content">
+				<div id="name">
+					<span>TRETERBETER</span>
+				</div>
+				<div id="description">
+					<span>Gaming mit Leidenschaft, unglaublichem Skill und einer Prise Salz.</span>
+				</div>
+			</div>
+			<div id="menu_content">
+				<div id="menu_elements">
+					<div class="menu_item">
+						<div class="menu_item_head"><i class="fas fa-users-cog"></i></div>
+						<div class="menu_item_text"><h2>Team Generator</h2><div>Egal ob Anno 1404, Bier Pong oder sonst was, hier entstehen die Teams!</div></div>
+					</div>
+					<div class="menu_item">
+						<div class="menu_item_head"><i class="far fa-question-circle"></i></div>
+						<div class="menu_item_text"><h2></h2><div>coming soon...</div></div>
+					</div>
+					<div class="menu_item">
+						<div class="menu_item_head"><i class="far fa-question-circle"></i></div>
+						<div class="menu_item_text"><h2></h2><div>coming soon...</div></div>
+					</div>
+					<div class="menu_item">
+						<div class="menu_item_head"><i class="far fa-question-circle"></i></div>
+						<div class="menu_item_text"><h2></h2><div>coming soon...</div></div>
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<div id="social_icons">
+					<div><i class="fab fa-instagram"></i></div>
+					<div><i class="fab fa-twitch"></i></div>
+					<div><i class="fab fa-discord"></i></div>
+				</div>
+				<span>©<a id="currentYear"></a> TreterBeter</span><!-- since 2021 -->
+			</footer>
+		</div>
+
+		<!--<object data="teamGenerator.html"></object>-->
+
+		<script>
+			document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+			//menu:
+			let animationPlayState = 0;
+			let menuOpen = false;
+
+			function toggleMenu() {
+				if(menuOpen) {
+					menuOpen = false;
+					document.getElementById('menu_content').style.display = "none";
+					document.getElementById('main_content').style.display = "block";
+					
+					if(animationPlayState === 1) {
+						animationPlayState = 0;
+						document.getElementsByClassName('bar1')[0].style.transform = "translate(0px, 0px)";
+						document.getElementsByClassName('bar2')[0].style.opacity = "100%";
+						document.getElementsByClassName('bar3')[0].style.transform = "translate(0px, 0px)";
+					} else {
+						animationPlayState = 3;
+						document.getElementsByClassName('bar1')[0].style.transform = "rotate(0deg) translate(0px, 15px)";
+						document.getElementsByClassName('bar2')[0].style.opacity = "0%";
+						document.getElementsByClassName('bar3')[0].style.transform = "rotate(0deg) translate(0px, -15px)";
+
+						setTimeout(function() {
+							if(animationPlayState === 3) {
+								animationPlayState = 4;
+								document.getElementsByClassName('bar1')[0].style.transform = "translate(0px, 0px)";
+								document.getElementsByClassName('bar2')[0].style.opacity = "100%";
+								document.getElementsByClassName('bar3')[0].style.transform = "translate(0px, 0px)";
+							}
+						}, 150);
+					}
+					
+				} else {
+					menuOpen = true;
+					document.getElementById('menu_content').style.display = "block";
+					document.getElementById('main_content').style.display = "none";
+
+					if(animationPlayState === 3) {
+						animationPlayState = 4;
+						document.getElementsByClassName('bar1')[0].style.transform = "rotate(-45deg) translate(-10px, 10px)";
+						document.getElementsByClassName('bar2')[0].style.opacity = "0%";
+						document.getElementsByClassName('bar3')[0].style.transform = "rotate(45deg) translate(-10px, -10px)";
+					} else {
+						animationPlayState = 1;
+						document.getElementsByClassName('bar1')[0].style.transform = "translate(0px, 15px)";
+						document.getElementsByClassName('bar3')[0].style.transform = "translate(0px, -15px)";
+
+						setTimeout(function() {
+							if(animationPlayState === 1) {
+								animationPlayState = 2;
+								document.getElementsByClassName('bar1')[0].style.transform = "rotate(-45deg) translate(-10px, 10px)";
+								document.getElementsByClassName('bar2')[0].style.opacity = "0%";
+								document.getElementsByClassName('bar3')[0].style.transform = "rotate(45deg) translate(-10px, -10px)";
+							}
+						}, 150);
+					}
+
+				}
+			}
+
+			toggleMenu();
+		</script>
+
+	</body>
+</html>
