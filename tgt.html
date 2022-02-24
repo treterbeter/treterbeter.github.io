@@ -1,0 +1,26 @@
+
+<div id="team_generator">
+
+	<div id="control_panel">
+		<div id="players_panel">
+			<div id="players_count" class="counter">Spieler: 0</div>
+			<textarea placeholder="Players" id="players_text_area"></textarea>
+		</div>
+		<div id="teams_panel">
+			<div id="teams_count" class="counter"><i class="fas fa-users"></i>Teams:</div>
+			<div id="teams_settings">
+				<input type="text" id="team_count_input" min="0" max="9999" value="2">
+				<button id="dec_team_count" class="team_count_btn" onclick="decTeamCounter()"><i class="fas fa-minus"></i></button>
+				<button id="inc_team_count" class="team_count_btn" onclick="incTeamCounter()"><i class="fas fa-plus"></i></button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="button_container"><button class="button" onclick="createTeamList()" title="Generate!"><span>Generate!</span></button></div>
+
+	<div id="teams">
+
+	</div>
+</div>
+
+<!--<script src="teamGenerator.js"></script>-->
