@@ -83,9 +83,9 @@ function processNavigation() {
             fetch('tgt.html').then(response => response.text())
             .then(text => {
                 mainElem.innerHTML = text
-                /*let myScript = document.createElement("script");
+                let myScript = document.createElement("script");
                 myScript.setAttribute("src", "teamGenerator.js");
-                document.body.appendChild(myScript);*/
+                document.body.appendChild(myScript);
             })
             .catch(err => {
                 console.log(err);
