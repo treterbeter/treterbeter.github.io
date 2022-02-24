@@ -53,12 +53,22 @@ header {
 	user-select: none;
 }
 
-#main_content {
-	margin: auto;
-	width: 50%;
-	margin-top: max(150px, 20vh);
+main {
 	grid-column: 1;
-  	grid-row: 2;
+	grid-row: 2;
+}
+
+object {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 100px;
+}
+
+#home_content {
+	margin: auto;
+	margin-top: max(150px, 20vh);
+	margin-bottom: 50px;
+	width: 50%;
 	animation: slideIn 0.3s ease-in-out 0s 1;
 }
 
@@ -242,7 +252,7 @@ footer span {
 	top: -2px;
 	left: -2px;
 	position: absolute;
-	z-index: -2;
+	z-index: 0;
 	transition: box-shadow 220ms ease-in-out;
 }
 .button_container:hover::before {
@@ -265,6 +275,7 @@ footer span {
 	overflow: hidden;
 	cursor: pointer;
 	color: #333;
+	z-index: 0;
 }
 .button::before {
 	content: "";
@@ -311,7 +322,7 @@ footer span {
 
 @media screen and (max-width: 1000px) {
 
-#main_content {
+#home_content {
 	width: 100%;
 }
 
