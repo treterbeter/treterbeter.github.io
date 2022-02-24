@@ -81,7 +81,12 @@ function processNavigation() {
         case "teamGenerator":
             mainElem.innerHTML = '<div id="loading">Loading...</div>';
             fetch('teamGenerator-test.html').then(response => response.text())
-            .then(text => mainElem.innerHTML = text)
+            .then(text => {
+                mainElem.innerHTML = text
+                let myScript = document.createElement("script");
+                myScript.setAttribute("src", "teamGenerator.js");
+                document.body.appendChild(myScript);
+            })
             .catch(err => {
                 console.log(err);
                 mainElem.innerHTML = '<object data="teamGenerator-test.html" type="text/html"></object>';
