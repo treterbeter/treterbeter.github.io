@@ -76,13 +76,16 @@ function processNavigation() {
     let url = new URL(urlString);
     let navValue = url.searchParams.get("nav");
 
+    let mainElem = document.getElementsByTagName('main')[0];
     switch(navValue) {
         case "teamGenerator":
-            //loadFile(navValue + ".html");
-            //document.getElementsByTagName('main')[0].innerHTML = '<object data="teamGenerator-test.html" type="text/html"></object>';
-            //document.getElementsByTagName('main')[0].innerHTML = '<iframe src="teamGenerator-test.html" onload="this.insertAdjacentHTML(\'afterend\', (this.contentDocument.body || this.contentDocument).innerHTML); this.remove()"></iframe>';
+            mainElem.innerHTML = '<div id="loading">Loading...</div>';
             fetch('teamGenerator-test.html').then(response => response.text())
-            .then(text => document.getElementsByTagName('main')[0].innerHTML = text);
+            .then(text => mainElem.innerHTML = text)
+            .catch(err => {
+                console.log(err);
+                mainElem.innerHTML = '<object data="teamGenerator-test.html" type="text/html"></object>';
+            });
             break;
     }
 
