@@ -80,9 +80,9 @@ function processNavigation() {
     switch(navValue) {
         case "teamGenerator":
             mainElem.innerHTML = '<div id="loading">Loading...</div>';
-            fetch('tgt.html').then(response => response.text())
+            fetch('teamGenerator.html').then(response => response.text())
             .then(text => {
-                mainElem.innerHTML = text
+                mainElem.innerHTML = text;
                 let myScript = document.createElement("script");
                 myScript.setAttribute("src", "teamGenerator.js");
                 document.body.appendChild(myScript);
