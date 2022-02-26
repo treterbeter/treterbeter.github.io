@@ -241,12 +241,15 @@ footer span {
 	transition: transform 0.15s;
 }
 
+#stream_schedule_button {
+	margin-left: 17px;
+	margin-top: 15px;
+}
+
 .button_container {
 	width: fit-content;
 	border-radius: 1000px;
 	position: relative;
-	margin-left: 17px;
-	margin-top: 15px;
 }
 .button_container::before {
 	border-radius: 1000px;
@@ -324,27 +327,4 @@ footer span {
 	100% {
 		opacity: 100%;
 	}
-}
-
-@media screen and (max-width: 1000px) {
-
-#home_content {
-	width: 100%;
-}
-
-#name {
-	text-align: center;
-	font-size: 9vw;
-}
-
-#description {
-	width: 50%;
-	margin: auto;
-}
-
-.button_container {
-    margin-left: auto;
-	margin-right: auto;
-}
-
 }
